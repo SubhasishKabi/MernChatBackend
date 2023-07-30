@@ -14,18 +14,16 @@ const fs = require("fs");
 app.use(express.json());
 dotenv.config();
 app.use(cors());
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: "https://mern-chat-frontend-eta.vercel.app/",
-//   })
-// );
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:4000",
+    // origin: "https://mern-chat-frontend-eta.vercel.app/",
+  })
+);
 app.use(cookieParser());
 app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "*"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
